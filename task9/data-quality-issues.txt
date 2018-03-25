@@ -1,0 +1,11 @@
+There are few issues I found in the assignment 1:
+
+#Containing special ASCII chars:
+I found out that some of the data contain special chars such as " or other special ASCII. Therefore, I decide not to use the way to split data like Labs we did before. I choose to import the CSV reader which will automatically cut the data properly. In this way, we do not have to concern about the quality of the CSV file at all.
+
+#Some of the value are meaningless:
+For example, there is one license_type called "999" and plate_id called "N/A". There also exists vehicle_make called "." or "1", "12". Obviously, there are some of the tuples contain meaningless data.
+
+Task1: In the "open-violations.csv" file, there is few records duplicate which means some driver repeatedly paid the fine. Therefore, for the purpose of not paying one more time in this scenario, I count the records in "parking-violation" as cnt1 and records in "open-violation" as cnt2. If only if cnt1 - cnt2 > 0, I see this situation as not paid yet. In this way, the driver will not pay again after paying duplicate times already.
+ 
+Task8: There is NULL value in either vehicle_color and vehicle_make. This issue increases the difficulty to deal with the map function. I use “$$$” to replace the original NULL value to map the data. In the reduction process, I filter the “$$$” out. In this way, even there is empty value in one of the columns needed to count, I will count the make and color which need to be count. 
